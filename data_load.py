@@ -1,4 +1,7 @@
-""" import pandas as pd
+"""
+*this file consists of every step starting from data loading to eda, i made several changes as well you may check them in their respective files, open to contribution*
+
+import pandas as pd
 
 # Load the dataset
 df = pd.read_csv('atp_matches_2024.csv')  # Replace with your file path if needed
@@ -84,4 +87,5 @@ corr = df[stats_cols].corr()
 sns.heatmap(corr, annot=True, cmap='coolwarm')
 plt.title('Correlation of Match Stats')
 plt.show()
+
 """
