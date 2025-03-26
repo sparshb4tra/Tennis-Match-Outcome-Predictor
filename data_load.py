@@ -1,5 +1,5 @@
 """
-*this file consists of every step starting from data loading to eda, i made several changes as well you may check them in their respective files, open to contribution*
+*this file consists of every step starting from data loading to eda, i made several changes as well you may check them in their respective files, open to contribution.*
 
 import pandas as pd
 
