@@ -59,7 +59,8 @@ from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler()
 df[['winner_rank', 'loser_rank', 'minutes']] = scaler.fit_transform(df[['winner_rank', 'loser_rank', 'minutes']])
 
-
+  # Check the transformed data
+    print(df[['rank_diff', 'ace_pct_winner', 'ace_pct_loser']].head())
 
 
 
