@@ -88,7 +88,15 @@ sns.heatmap(corr, annot=True, cmap='coolwarm')
 plt.title('Correlation of Match Stats')
 plt.show()
 
-
+  # Bar Plot: Win Percentage by Player Hand
+    hand_wins = df['winner_hand'].value_counts() / (df['winner_hand'].value_counts() + df['loser_hand'].value_counts())
+    plt.figure(figsize=(8, 5))
+    hand_wins.plot(kind='bar')
+    plt.title('Win Percentage by Player Hand')
+    plt.xlabel('Hand (0=Left, 1=Right)')  # Adjust based on encoding
+    plt.ylabel('Win Proportion')
+    plt.xticks(ticks=[0, 1], labels=['Left', 'Right'], rotation=0)
+    plt.show()
     # Line Plot: Rank vs. Win Count (Top Players)
     rank_wins = df['winner_rank'].value_counts().sort_index().head(20)  # Top 20 ranks
     plt.figure(figsize=(10, 6))
