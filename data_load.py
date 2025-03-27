@@ -88,4 +88,23 @@ sns.heatmap(corr, annot=True, cmap='coolwarm')
 plt.title('Correlation of Match Stats')
 plt.show()
 
+
+    # Line Plot: Rank vs. Win Count (Top Players)
+    rank_wins = df['winner_rank'].value_counts().sort_index().head(20)  # Top 20 ranks
+    plt.figure(figsize=(10, 6))
+    plt.plot(rank_wins.index, rank_wins.values, marker='o')
+    plt.title('Wins by Player Rank (Top 20)')
+    plt.xlabel('Winner Rank')
+    plt.ylabel('Number of Wins')
+    plt.grid(True)
+    plt.show()
+
+    # Violin Plot: Break Points Saved by Round
+    plt.figure(figsize=(12, 6))
+    sns.violinplot(x='round', y='w_bpSaved', data=df)
+    plt.title('Break Points Saved by Winner Across Rounds')
+    plt.xlabel('Round')
+    plt.ylabel('Break Points Saved')
+    plt.xticks(rotation=45)
+    plt.show()
 """
