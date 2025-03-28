@@ -47,7 +47,7 @@ le = LabelEncoder()
 df['surface'] = le.fit_transform(df['surface'])
 df['winner_hand'] = le.fit_transform(df['winner_hand'])
 df['loser_hand'] = le.fit_transform(df['loser_hand'])
-df['round'] = le.fit_transform(df['round'])
+
 
 # Feature engineering
 df['rank_diff'] = df['winner_rank'] - df['loser_rank']
