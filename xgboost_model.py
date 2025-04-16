@@ -79,13 +79,5 @@ def train_xgboost_model(df):
     print("\nFeature Importance:")
     print(feature_importance_df)
 
-    return xgb_model, X_test, y_test, y_pred
+    return xgb_model, X_train, X_test, y_train, y_test, y_pred
 
-# Example usage
-if __name__ == "__main__":
-    df = pd.read_csv('atp_matches_2024.csv')
-    from data_cleaning import clean_data
-    from data_preprocessing import preprocess_data
-    df_cleaned = clean_data(df)
-    df_preprocessed = preprocess_data(df_cleaned)
-    model, X_test, y_test, y_pred = train_xgboost_model(df_preprocessed)
