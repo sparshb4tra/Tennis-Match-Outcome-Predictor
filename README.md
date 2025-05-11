@@ -1,68 +1,98 @@
 # 🎾 Tennis Match Outcome Predictor
 
 ## 🏆 Overview
-The **Tennis Match Outcome Predictor** is a machine learning project aimed at predicting the winner of professional ATP tennis matches based on historical data. The dataset, sourced from **Jeff Sackmann's "tennis_atp"** repository, includes detailed match statistics such as player rankings, surface types, match duration, aces, and break points saved.
-
-🚧 **Work in Progress:** The model is currently in training, and we are refining features and optimizing performance!
-
----
+The **Tennis Match Outcome Predictor** is a machine learning project developed to predict professional ATP tennis match outcomes using historical data. As demonstrated in our comparative analysis, ensemble methods significantly outperform traditional classifiers for this task, with XGBoost achieving remarkable 95.86% accuracy.
 
 ## 📊 Dataset
-The dataset consists of historical ATP match records, containing:
-- **Player Information**: Winner & Loser names, rankings, and handedness.
-- **Match Statistics**: Aces, double faults, service points, and break points saved.
-- **Surface Details**: Clay, Grass, and Hard court surfaces.
-- **Tournament Info**: Round, match duration, and event details.
-
-**Source**: [Jeff Sackmann's "tennis_atp" dataset](https://github.com/JeffSackmann/tennis_atp)
-
----
+The dataset consists of ATP (Association of Tennis Professionals) matches from the 2024 season, containing:
+- **Player Information**: Winner & loser IDs, names, handedness, height, age, and country
+- **Match Statistics**: Aces, double faults, break points, service points won
+- **Match Details**: Score, tournament round, duration, surface type
+- **Ranking Information**: Player rankings and ranking points
 
 ## 🏗️ Project Pipeline
-🔹 **Data Loading**: Importing ATP match data from CSV files.
-🔹 **Data Cleaning**: Handling missing values, duplicates, and inconsistent data.
-🔹 **Exploratory Data Analysis (EDA)**: Understanding player performance, surface impact, and key match trends.
-🔹 **Feature Engineering**: Creating new predictive features like rank difference and ace percentage.
-🔹 **Model Training**: Training machine learning models (Logistic Regression, Random Forest, XGBoost, etc.).
-🔹 **Evaluation & Optimization**: Tuning hyperparameters and improving accuracy.
+1. **Data Loading**: Importing ATP match data from structured CSV files
+2. **Data Cleaning**: Handling missing values, removing duplicates, and converting data types
+3. **Preprocessing & Feature Engineering**:
+   - Creating rank difference features
+   - Calculating ace percentages
+   - Normalizing numerical features
+   - Encoding categorical variables
+4. **Model Implementation**: Training and evaluating five machine learning classifiers
+5. **Performance Analysis**: Comparing model accuracy, precision, recall, and F1-scores
 
----
+## 🧠 Machine Learning Models & Performance
+
+| Model | Accuracy | Key Features |
+|-------|----------|-------------|
+| **XGBoost** | **95.86%** | Best performer with lowest log loss (0.0957) |
+| **Random Forest** | **89.68%** | Second-best accuracy, good feature importance insights |
+| **SVM** | 64.99% | Moderate performance with linear boundary |
+| **Logistic Regression** | 65.23% | Simple interpretable model |
+| **Naive Bayes** | 61.82% | Baseline probabilistic classifier |
+
+### 📈 Key Findings
+- **Ensemble methods** (XGBoost and Random Forest) significantly outperform traditional classifiers
+- **Player rankings** and **ace percentages** consistently emerge as the most influential predictors
+- Detailed feature importance analysis reveals which factors most strongly influence tennis match outcomes
 
 ## 🚀 Installation & Usage
-1️⃣ Clone the repository:
 ```bash
-  git clone https://github.com/yourusername/tennis-match-predictor.git
-  cd tennis-match-predictor
-```
-2️⃣ Install dependencies:
-```bash
-  pip install -r requirements.txt
-```
-3️⃣ Run the main script:
-```bash
-  python main.py
+# Clone the repository
+git clone https://github.com/yourusername/tennis-match-predictor.git
+cd tennis-match-predictor
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the main script
+python main.py
 ```
 
----
+## 📋 Requirements
+- Python 3.8+
+- NumPy
+- Pandas
+- Scikit-learn
+- XGBoost
+- Matplotlib
+- Seaborn
 
-## 📈 Exploratory Data Analysis (EDA)
-Our EDA uncovers key insights such as:
-- 🎾 **Impact of Surface Type**: Does a player's performance vary on Clay vs. Grass?
-- 📊 **Ranking vs. Win Rate**: Do higher-ranked players always dominate?
-- ⚡ **Aces & Match Outcome**: Does serving power influence match results?
+## 🔬 Feature Importance
+Our analysis revealed that the following features have the highest predictive value:
 
----
+1. Player rankings (winner_rank, loser_rank)
+2. Ranking difference between players
+3. Ace percentages (both winner and loser)
+4. Match duration
+5. Tournament round
+6. Surface type
+7. Player handedness
 
-## 🔮 Next Steps
-🔹 Fine-tune models for improved accuracy.
-🔹 Implement deep learning approaches (LSTMs, Neural Networks).
-🔹 Deploy as a web app for real-time predictions.
+## 📊 Model Evaluation
+Each model was evaluated using:
+- Accuracy
+- Precision, Recall, and F1-Score
+- Log Loss
+- ROC curves
 
----
+## 🔮 Future Work
+- Incorporate additional features like head-to-head records and player fatigue metrics
+- Implement temporal analysis to account for recent form and career trajectories
+- Explore deep learning approaches (RNNs, Transformers)
+- Develop real-time in-match prediction capabilities
+- Extend models to WTA (women's tennis) data
 
-## ❤️ Contribute & Support
-💡 Found this project interesting? Give it a ⭐ on GitHub!
-📩 Open to collaborations & feedback – feel free to raise an issue or PR!
+## 📚 Published Paper
+Coming soon...
 
-**Stay tuned for updates! 🚀**
+## 🤝 Contributing
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/sparshb4tra/Tennis-Match-Outcome-Predictor/issues).
 
+## 📝 License
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## 📧 Contact
+Sparsh Batra - [Portfolio](https://sbatra.xyz) - me@sbatra.xyz
+
+Project Link: [https://github.com/sparshb4tra/Tennis-Match-Outcome-Predictor](https://github.com/sparshb4tra/Tennis-Match-Outcome-Predictor)
